@@ -1,5 +1,8 @@
 # JAVAでNeuralODEを再現しよう
 ## これからやること
+- オイラー法完成させる。任意の定義域で任意の関数で予測できるように改良する
+
+
 # 🧠 Neural ODE Java Implementation Guide
 
 Neural Ordinary Differential Equations（Neural ODE）を **Java** で再現・実装するためのステップガイドです。  

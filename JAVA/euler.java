@@ -3,7 +3,7 @@ public class euler{
         return Math.pow(x,3)-2*Math.pow(x,2)+1;
     }
     public static double dxdt(double x,double h){//導関数を求める
-        double dxdt=((Math.pow(x+h,3)-2*Math.pow(x+h,2)+1)-(Math.pow(x,3)-2*Math.pow(x,2)+1))/h;
+        double dxdt=(((Math.pow(x+h,3))-(2*Math.pow(x+h,2))+1)-((Math.pow(x,3))-(2*Math.pow(x,2))+1))/h;
         return dxdt;
 
     }
@@ -19,8 +19,14 @@ public class euler{
                     euler_data[i][j]=i*h;
                 }
                 else if (j==1){
-                    y_0+=dxdt(i,h)*h;
-                    euler_data[i][j]=y_0;
+                    if (i==0){
+                        euler_data[i][j]=y_0;
+                    }
+                    else{
+                        y_0+=dxdt(i,h)*h;
+                        System.out.println(i+"番目"+dxdt(i,h)*h);
+                        euler_data[i][j]=y_0;
+                    }
                 }
                  System.out.print(euler_data[i][j]+"\t");
             }
@@ -29,7 +35,7 @@ public class euler{
     }
     public static void main (String[] args){
         // euler_method()
-        double h=0.001;//刻み幅
+        double h=1;//刻み幅
         int x=10;//定義域の範囲
         euler_method(x,h);
 
